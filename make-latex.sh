@@ -40,12 +40,4 @@ echo "Finished converting to pdf. "
 echo "Converting to epub..."
 pandoc -o book/book.epub book/book.tex --metadata title="book"
 
-echo "Converting to html..."
-echo "#lang pollen" >> book/book.html.pmd
-pandoc book/book.tex -o book/book.html
-cat book/book.html >> book/book.html.pmd
-raco pollen render book/book.html.pmd
-rm -rf "book/compiled"
-rm "book/book.html.pmd"
-
 echo "Book finished building."
